@@ -9,6 +9,7 @@ Download or clone a copy from the master repository:
 https://github.com/amynordrum/robo-advisor
 
 pip install -r requirements.txt
+pip install requests
 
 # Usage 
 
