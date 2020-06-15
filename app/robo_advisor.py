@@ -32,6 +32,14 @@ latest_close = tsd[latest_day]["4. close"]
 def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
+high_prices = []
+
+for date in dates:
+    high_price = tsd[date]["2. high"]
+    high_prices.append(float(high_price))
+
+recent_high = max(high_prices)
+
 
 # INFO OUTPUTS
 
@@ -43,7 +51,7 @@ print("REQUEST AT: " + (current_time))
 print("-------------------------")
 print(f"LATEST DAY: {last_refreshed}")
 print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
-print("RECENT HIGH: $101,000.00")
+print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print("RECENT LOW: $99,000.00")
 print("-------------------------")
 print("RECOMMENDATION: BUY!")
