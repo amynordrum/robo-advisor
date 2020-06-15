@@ -23,7 +23,11 @@ now = datetime.datetime.now()
 current_time = (now.strftime("%B %d %Y %I:%M %p"))
 print(current_time)
 
-latest_close = parsed_response["Time Series (Daily)"]["2020-06-10"]["4. close"]
+tsd = parsed_response["Time Series (Daily)"]
+
+dates = list(tsd.keys())
+latest_day = dates[0]
+latest_close = tsd[latest_day]["4. close"]
 
 def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
