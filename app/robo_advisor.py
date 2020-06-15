@@ -6,6 +6,8 @@
 import requests
 import json
 import datetime
+import csv
+import os
 
 request_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo"
 response = requests.get(request_url)
@@ -44,7 +46,6 @@ for date in dates:
 recent_high = max(high_prices)
 recent_low = min(low_prices)
 
-
 # INFO OUTPUTS
 
 print("-------------------------")
@@ -63,3 +64,14 @@ print("RECOMMENDATION REASON: TODO")
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+
+csv_file_path = os.path.join(os.path.dirname(__file__), "../data/prices.csv")
+
+with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
+    writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
+    writer.writeheader() # uses fieldnames set above
+    writer.writerow({"city": "New York", "name": "Yankees"})
+    writer.writerow({"city": "New York", "name": "Mets"})
+    writer.writerow({"city": "Boston", "name": "Red Sox"})
+    writer.writerow({"city": "New Haven", "name": "Ravens"})
