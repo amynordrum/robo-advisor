@@ -59,10 +59,16 @@ recent_high = max(high_prices)
 recent_low = min(low_prices)
 
 def recommendation(symbol):
-    if ((float(latest_close)) * 1.20) <= (recent_high):
-        return("BUY!")
-    else:
+    if ((float(latest_close)) * 1.20) >= float(recent_high):
         return("SELL!")
+    else:
+        return("BUY!")
+
+def reason(recommendation):
+    if str(recommendation(symbol)) == str("BUY!"):
+        return("YAY THE PRICE IS RIGHT! THE CLOSING PRICE IS MORE THAN 20% LOWER THAN A RECENT HIGH")
+    else: 
+        return("EEK THE PRICE IS TOO MUCH! THE CLOSING PRICE IS WITHIN 20% OF A RECENT HIGH")
 
 # INFO OUTPUTS
 
@@ -78,7 +84,7 @@ print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
 print("RECOMMENDATION: " + str(recommendation(symbol)))
-print("RECOMMENDATION REASON: TODO")
+print("RECOMMENDATION REASON: " + str(reason(recommendation)))
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
