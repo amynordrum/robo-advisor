@@ -1,6 +1,6 @@
 # robo-advisor
 
-This program evaluates stocks and gives a buy, sell, or hold recommendation. Disclaimer: It's just a class exercise and should not be used to invest real dollars and cents! :)  
+This program evaluates stocks and gives a buy or sell recommendation. Disclaimer: It's just a class exercise and should not be used to invest real dollars and cents! :)  
 
 # Installation 
 

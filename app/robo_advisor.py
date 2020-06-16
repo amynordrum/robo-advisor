@@ -17,10 +17,11 @@ while True:
         print("Sorry, stock symbols consist of letters only!")
         continue
     if len(stock_symbol) > 5:
-        print("Sorry, that's too many letters!")
+        print("Sorry, that's way too many letters!")
         continue
     else:
-        break
+            break
+
 
 symbol = stock_symbol 
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
