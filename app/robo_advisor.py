@@ -11,7 +11,15 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-symbol = "MSFT" 
+stock_symbol = input("Please enter a stock symbol: ")
+if not stock_symbol.isalpha():
+    print("Sorry, stock symbols consist of letters only!")
+else:
+    print(stock_symbol)
+
+breakpoint
+
+symbol = stock_symbol 
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
 request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&outputsize=full&apikey={api_key}"
 response = requests.get(request_url)
@@ -53,7 +61,7 @@ recent_low = min(low_prices)
 # INFO OUTPUTS
 
 print("-------------------------")
-print("SELECTED SYMBOL: XYZ")
+print("SELECTED SYMBOL: " + str(symbol))
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
 print("REQUEST AT: " + (current_time))
