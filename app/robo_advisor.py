@@ -11,13 +11,13 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-stock_symbol = input("Please enter a stock symbol: ")
-if not stock_symbol.isalpha():
-    print("Sorry, stock symbols consist of letters only!")
-else:
-    print(stock_symbol)
-
-breakpoint
+while True: 
+    stock_symbol = input("Please enter a stock symbol: ")
+    if not stock_symbol.isalpha():
+        print("Sorry, stock symbols consist of letters only!")
+        continue
+    else:
+        break
 
 symbol = stock_symbol 
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
