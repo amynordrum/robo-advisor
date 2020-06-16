@@ -58,6 +58,12 @@ for date in dates:
 recent_high = max(high_prices)
 recent_low = min(low_prices)
 
+def recommendation(symbol):
+    if ((float(latest_close)) * 1.20) <= (recent_high):
+        return("BUY!")
+    else:
+        return("SELL!")
+
 # INFO OUTPUTS
 
 print("-------------------------")
@@ -71,7 +77,7 @@ print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
 print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
-print("RECOMMENDATION: BUY!")
+print("RECOMMENDATION: " + str(recommendation(symbol)))
 print("RECOMMENDATION REASON: TODO")
 print("-------------------------")
 print("HAPPY INVESTING!")
